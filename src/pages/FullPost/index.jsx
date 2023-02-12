@@ -7,11 +7,11 @@ import ReactMarkdown from 'react-markdown';
 import { useSelector } from 'react-redux';
 
 export const FullPost = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const { id } = useParams();
   const userData = useSelector((state) => state.auth.data);
-  const editable = userData?._id === data?.user._id;
+  const editable = userData?._id === data?.user?._id;
 
   useEffect(() => {
     axios
