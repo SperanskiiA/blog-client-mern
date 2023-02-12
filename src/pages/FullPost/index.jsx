@@ -7,14 +7,12 @@ import ReactMarkdown from 'react-markdown';
 import { useSelector } from 'react-redux';
 
 export const FullPost = () => {
-  const [update, setUpdate] = useState(true);
   const [data, setData] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const { id } = useParams();
   const userData = useSelector((state) => state.auth.data);
 
   useEffect(() => {
-    console.log(id);
     axios
       .get(`/posts/${id}`)
       .then((res) => {
@@ -26,7 +24,6 @@ export const FullPost = () => {
       .catch((err) => {
         alert('Somthing went wrong, please try do that later');
       });
-    setUpdate(false);
   }, []);
 
   return (
@@ -46,7 +43,9 @@ export const FullPost = () => {
           createdAt={data.createdAt}
           viewsCount={data.viewsAmount}
           tags={data.tags}
-          isEditable={userData?._id === data.user._id}
+          isEditable={
+            userData?._id === data.user._id && userData?._id !== undefined
+          }
           isFullPost
         >
           <ReactMarkdown children={data.text} />
