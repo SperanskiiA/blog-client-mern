@@ -1,0 +1,36 @@
+.account_wrapper {
+  padding: 20px;
+  position: relative;
+  box-sizing: border-box;
+}
+.account_card {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  @media (max-width: 600px) {
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+  }
+}
+.account_avatar_wrapper {
+  width: 50%;
+  margin: 0 auto;
+  padding: 16px 0;
+  @media (max-width: 600px) {
+    width: 80%;
+    margin: 16px auto;
+  }
+}
+.account_avatar_img {
+  margin: 0 auto;
+
+  width: 80%;
+  height: auto;
+  aspect-ratio: 1/1;
+}
+.root {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+}
