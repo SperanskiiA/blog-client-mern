@@ -11,6 +11,7 @@ export const FullPost = () => {
   const [isLoading, setLoading] = useState(true);
   const { id } = useParams();
   const userData = useSelector((state) => state.auth.data);
+  const editable = userData?._id === data?.user._id;
 
   useEffect(() => {
     axios
@@ -20,6 +21,7 @@ export const FullPost = () => {
       })
       .then(() => {
         setLoading(false);
+        console.log(editable);
       })
       .catch((err) => {
         alert('Somthing went wrong, please try do that later');
@@ -43,7 +45,7 @@ export const FullPost = () => {
           createdAt={data.createdAt}
           viewsCount={data.viewsAmount}
           tags={data.tags}
-          isEditable={userData?._id === data.user._id}
+          isEditable={editable}
           isFullPost
         >
           <ReactMarkdown children={data.text} />
