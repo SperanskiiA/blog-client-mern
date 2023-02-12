@@ -43,9 +43,7 @@ export const FullPost = () => {
           createdAt={data.createdAt}
           viewsCount={data.viewsAmount}
           tags={data.tags}
-          isEditable={
-            userData?._id === data.user._id && userData?._id !== undefined
-          }
+          isEditable={userData?._id === data.user._id}
           isFullPost
         >
           <ReactMarkdown children={data.text} />
