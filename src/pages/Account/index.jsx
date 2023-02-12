@@ -60,7 +60,9 @@ export const Account = () => {
                       sx={{ width: '80%', height: 'auto' }}
                       className={styles.account_avatar_img}
                       src={
-                        user ? `http://localhost:4444${user.avatarUrl}` : '/'
+                        user
+                          ? `${process.env.REACT_APP_API_URL}${user.avatarUrl}`
+                          : '/'
                       }
                     />
                   </Box>
@@ -115,7 +117,7 @@ export const Account = () => {
                       title={item.title}
                       imageUrl={
                         item.imageUrl
-                          ? `http://localhost:4444${item.imageUrl}`
+                          ? `${process.env.REACT_APP_API_URL}${item.imageUrl}`
                           : ''
                       }
                       user={item.user}

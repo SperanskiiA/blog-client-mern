@@ -68,7 +68,7 @@ export const Header = () => {
                     alt={userData?.fullName.toUpperCase()}
                     src={
                       userData?.avatarUrl
-                        ? `http://localhost:4444${userData.avatarUrl}`
+                        ? `${process.env.REACT_APP_API_URL}${userData.avatarUrl}`
                         : '/'
                     }
                   />

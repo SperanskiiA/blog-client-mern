@@ -46,7 +46,7 @@ export const Comment = ({ user, setComment, post_id, setUpdate }) => {
             classes={{ root: styles.avatar }}
             src={
               userData.avatarUrl
-                ? `http://localhost:4444${userData.avatarUrl}`
+                ? `${process.env.REACT_APP_API_URL}${userData.avatarUrl}`
                 : '/'
             }
           />

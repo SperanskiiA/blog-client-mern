@@ -109,7 +109,7 @@ export const Registration = () => {
       ) : (
         <div className={styles.avatar}>
           <Avatar
-            src={`http://localhost:4444${imageUrl}`}
+            src={`${process.env.REACT_APP_API_URL}${imageUrl}`}
             onClick={() => inputImgRef.current?.click()}
             sx={{ width: 100, height: 100 }}
           />
