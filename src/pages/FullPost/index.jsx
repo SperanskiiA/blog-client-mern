@@ -19,15 +19,11 @@ export const FullPost = () => {
       .get(`/posts/${id}`)
       .then((res) => {
         setData(res.data);
-
-        console.log(res.data);
       })
       .then(() => {
         setLoading(false);
-        console.log(data._id);
       })
       .catch((err) => {
-        console.log(err);
         alert('Somthing went wrong, please try do that later');
       });
     setUpdate(false);

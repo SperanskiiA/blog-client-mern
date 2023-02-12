@@ -54,7 +54,6 @@ export const Post = React.memo(
           .then((res) => {
             setUpdate(false);
             setComs(res.data);
-            res.data && console.log('fetch comments' + res.data);
           })
           .catch((err) => console.log('err is:  ' + err));
       _id && isFullPost && setVisible(true);

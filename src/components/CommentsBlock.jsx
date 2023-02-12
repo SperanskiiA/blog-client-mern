@@ -25,9 +25,6 @@ export const CommentsBlock = React.memo(
       setUpdate();
     };
 
-    console.log('coment block rendered');
-    console.log(items);
-
     return (
       <SideBlock title="Comments">
         <List>

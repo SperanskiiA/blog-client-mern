@@ -21,7 +21,6 @@ export const Home = () => {
   const isMobile = useMediaQuery('(max-width: 767px)');
 
   useEffect(() => {
-    console.log('HOME rendered');
     dispatch(fetchPosts());
     dispatch(fetchTags());
   }, []);

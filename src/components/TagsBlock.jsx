@@ -39,7 +39,6 @@ export const TagsLine = React.memo(({ title, items, isLoading = true }) => {
   const navigate = useNavigate();
   const smallLayout = useMediaQuery('(max-width: 500px)');
   const tags = smallLayout ? items?.slice(0, 3) : items;
-  console.log(tags);
 
   return (
     <Paper

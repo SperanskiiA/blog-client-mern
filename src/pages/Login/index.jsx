@@ -41,7 +41,6 @@ export const Login = () => {
   };
 
   if (isAuth) {
-    console.log('u r in navigate condition' + isAuth);
     setErr(false);
     navigate('/');
   }

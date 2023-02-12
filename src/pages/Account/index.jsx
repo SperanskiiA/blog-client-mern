@@ -28,12 +28,9 @@ export const Account = () => {
       axios
         .get(`/account/${user?._id}`)
         .then((res) => {
-          console.log(res?.data);
           setData(res?.data);
         })
-        .catch((e) => {
-          console.log(e?.message);
-        });
+        .catch((e) => {});
     if (!window.localStorage.getItem('token') && !isAuth) {
       alert('You should log in first!');
       navigate('/login');

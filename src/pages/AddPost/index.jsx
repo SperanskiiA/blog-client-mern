@@ -29,7 +29,7 @@ export const AddPost = () => {
       const formData = new FormData();
       formData.append('image', event.target.files[0]);
       const { data } = await axios.post('/uploads', formData);
-      console.log(data + data.url);
+
       setImageUrl(data.url);
     } catch (error) {
       alert('The error occur' + error);

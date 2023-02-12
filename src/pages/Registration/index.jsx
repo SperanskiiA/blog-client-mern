@@ -36,30 +36,12 @@ export const Registration = () => {
       const formData = new FormData();
       formData.append('avatar', event.target.files[0]);
       const { data } = await axios.post('/avatars', formData);
-      console.log(data.url);
+
       setImageUrl(data.url);
     } catch (error) {
       alert('The error occures' + error);
     }
   };
-
-  // const onSubmit = (values) => {
-  //   const data = dispatch(fetchRegistration(values));
-
-  //   console.log(data);
-
-  //   if (!data.payload) {
-  //     alert('Sign On failed! :)))');
-  //   }
-  //   if ('token' in data.payload) {
-  //     window.localStorage.setItem('token', data.payload.token);
-  //   }
-  // };
-
-  // if (isAuth) {
-  //   console.log('u r in navigate condition' + isAuth);
-  //   navigate('/');
-  // }
 
   const onSubmit = async (values) => {
     try {
@@ -68,14 +50,11 @@ export const Registration = () => {
       }
       const data = dispatch(fetchRegistration(values));
       let res = await data;
-      console.log(res);
 
       if (!res.payload) {
         alert('Sign On failed! :)))');
-        console.log('still waiting');
       }
       if ('token' in res.payload) {
-        console.log(res.payload.token);
         window.localStorage.setItem('token', res.payload.token);
       }
     } catch (e) {
@@ -84,7 +63,6 @@ export const Registration = () => {
   };
 
   if (isAuth) {
-    console.log('u r in navigate condition' + isAuth);
     navigate('/');
   }
 
