@@ -55,6 +55,7 @@ export const Account = () => {
                   <Box className={styles.account_avatar_wrapper}>
                     <Avatar
                       sx={{ width: '80%', height: 'auto' }}
+                      alt={user.fullName}
                       className={styles.account_avatar_img}
                       src={
                         user

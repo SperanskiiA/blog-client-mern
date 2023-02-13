@@ -100,7 +100,13 @@ export const Post = React.memo(
                   sx={{ width: '100%', height: 'auto', aspectRatio: '4/2' }}
                 />
               )}
-              <CardContent>
+              <CardContent
+                sx={
+                  isFullPost
+                    ? { paddingBottom: '16px' }
+                    : { paddingBottom: '0' }
+                }
+              >
                 <UserInfo {...user} additionalText={date} />
                 <div className={styles.indention}>
                   <Typography
@@ -111,13 +117,15 @@ export const Post = React.memo(
                   >
                     {title}
                   </Typography>
-                  <ul className={styles.tags}>
-                    {tags?.map((name) => (
-                      <li key={name}>
-                        <Link to={`/tags/${name}`}>#{name}</Link>
-                      </li>
-                    ))}
-                  </ul>
+                  {isFullPost && (
+                    <ul className={styles.tags}>
+                      {tags?.map((name) => (
+                        <li key={name}>
+                          <Link to={`/tags/${name}`}>#{name}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
                 {children && <div className={styles.content}>{children}</div>}
               </CardContent>
@@ -136,7 +144,21 @@ export const Post = React.memo(
                 </div>
               )}
               <div className={styles.indention}>
-                <ul className={styles.postDetails}>
+                {!isFullPost && (
+                  <ul className={styles.tags}>
+                    {tags?.map((name) => (
+                      <li key={name}>
+                        <Link to={`/tags/${name}`}>#{name}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <ul
+                  className={styles.postDetails}
+                  style={
+                    isFullPost ? { paddingTop: '0' } : { paddingTop: '16px' }
+                  }
+                >
                   <li>
                     <EyeIcon htmlColor="#000" />
                     <span>{viewsCount}</span>

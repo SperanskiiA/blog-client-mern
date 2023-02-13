@@ -44,6 +44,7 @@ export const Comment = ({ user, setComment, post_id, setUpdate }) => {
         <div className={styles.root}>
           <Avatar
             classes={{ root: styles.avatar }}
+            alt={userData.fullName}
             src={
               userData.avatarUrl
                 ? `${process.env.REACT_APP_API_URL}${userData.avatarUrl}`
