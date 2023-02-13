@@ -19,4 +19,21 @@
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
+  cursor: pointer;
+}
+.link {
+  text-decoration: none;
+  font-size: 16px;
+  color: #000;
+  opacity: 0.65;
+  text-align: center;
+  &:hover {
+    color: #4361ee;
+    opacity: 1;
+  }
+}
+.link_box {
+  display: flex;
+  margin: 25px;
+  justify-content: end;
 }

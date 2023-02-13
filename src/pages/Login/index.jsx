@@ -5,7 +5,7 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, Navigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import styles from './Login.module.scss';
 import { fetchAuth, isAuthSelect } from '../../redux/slices/auth';
 
@@ -79,6 +79,11 @@ export const Login = () => {
           Incorect email or password!
         </Typography>
       )}
+      <div className={styles.link_box}>
+        <Link className={styles.link} to="/register">
+          Haven't an account?
+        </Link>
+      </div>
     </Paper>
   );
 };

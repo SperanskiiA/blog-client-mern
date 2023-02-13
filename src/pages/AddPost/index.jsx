@@ -2,6 +2,7 @@ import React from 'react';
 import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
 import SimpleMDE from 'react-simplemde-editor';
 
 import 'easymde/dist/easymde.min.css';
@@ -107,6 +108,7 @@ export const AddPost = () => {
         onClick={() => inputImgRef.current?.click()}
         variant="outlined"
         size="large"
+        sx={{ margin: '10px 5px' }}
       >
         Upload preview
       </Button>
@@ -122,6 +124,7 @@ export const AddPost = () => {
             variant="contained"
             color="error"
             onClick={onClickRemoveImage}
+            sx={{ margin: '10px 5px' }}
           >
             Remove
           </Button>
@@ -142,14 +145,16 @@ export const AddPost = () => {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <TextField
-        classes={{ root: styles.tags }}
-        variant="standard"
-        placeholder="Tags"
-        fullWidth
-        value={tags}
-        onChange={(e) => setTags(e.target.value)}
-      />
+      <Tooltip title="Please, separate tags with whitespace!">
+        <TextField
+          classes={{ root: styles.tags }}
+          variant="standard"
+          placeholder="Tags"
+          fullWidth
+          value={tags}
+          onChange={(e) => setTags(e.target.value)}
+        />
+      </Tooltip>
       <SimpleMDE
         className={styles.editor}
         value={text}
@@ -157,12 +162,12 @@ export const AddPost = () => {
         options={options}
       />
       <div className={styles.buttons}>
-        <Button size="large" variant="contained" onClick={onSubmit}>
-          {!isEdit ? 'Create' : 'Edit'}
-        </Button>
-        <a href="/">
+        <a style={{ textDecoration: 'none' }} href="/">
           <Button size="large">Cancel</Button>
         </a>
+        <Button size="large" variant="contained" onClick={onSubmit}>
+          {!isEdit ? 'Create' : 'Save'}
+        </Button>
       </div>
     </Paper>
   );

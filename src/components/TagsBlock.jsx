@@ -51,14 +51,16 @@ export const TagsLine = React.memo(({ title, items, isLoading = true }) => {
         margin: '10px 0',
       }}
     >
-      {(isLoading ? [...Array(5)] : tags).map((name, i) => (
-        <Box key={name} sx={{ display: 'flex', flexDirection: 'row' }}>
-          <IconButton onClick={() => navigate(`/tags/${name}`)}>
-            <TagIcon />
-            <Typography>{name}</Typography>
-          </IconButton>
-        </Box>
-      ))}
+      {(isLoading ? (!smallLayout ? [...Array(5)] : [...Array(3)]) : tags).map(
+        (name, i) => (
+          <Box key={name} sx={{ display: 'flex', flexDirection: 'row' }}>
+            <IconButton onClick={() => navigate(`/tags/${name}`)}>
+              <TagIcon />
+              <Typography>{name}</Typography>
+            </IconButton>
+          </Box>
+        )
+      )}
     </Paper>
   );
 });

@@ -4,10 +4,11 @@ import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
+import { Tooltip } from '@mui/material';
 import styles from './Registration.module.scss';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { fetchRegistration, isAuthSelect } from '../../redux/slices/auth';
 import axios from '../../axios';
 
@@ -73,10 +74,12 @@ export const Registration = () => {
       </Typography>
       {!imageUrl ? (
         <div className={styles.avatar}>
-          <Avatar
-            onClick={() => inputImgRef.current?.click()}
-            sx={{ width: 100, height: 100 }}
-          />
+          <Tooltip title="Type to upload an avatar! P.S. file size < 1MB">
+            <Avatar
+              onClick={() => inputImgRef.current?.click()}
+              sx={{ width: 100, height: 100 }}
+            />
+          </Tooltip>
           <input
             ref={inputImgRef}
             type="file"
@@ -134,6 +137,11 @@ export const Registration = () => {
           Sign On !
         </Button>
       </form>
+      <div className={styles.link_box}>
+        <Link className={styles.link} to="/login">
+          Already have an account?
+        </Link>
+      </div>
     </Paper>
   );
 };

@@ -60,9 +60,15 @@ export const Comment = ({ user, setComment, post_id, setUpdate }) => {
               value={text}
               onChange={(e) => setText(e.target.value)}
             />
-            <Button onClick={addComment} variant="contained">
-              Add
-            </Button>
+            <div className={styles.buttons}>
+              <Button
+                sx={{ margin: '10px' }}
+                onClick={addComment}
+                variant="contained"
+              >
+                Add
+              </Button>
+            </div>
           </div>
         </div>
       ) : (
@@ -78,20 +84,22 @@ export const Comment = ({ user, setComment, post_id, setUpdate }) => {
               value={text}
               onChange={(e) => setText(e.target.value)}
             />
-            <Button
-              sx={{ margin: '10px' }}
-              onClick={() => navHandler('/login')}
-              variant="outlined"
-            >
-              Sign In!
-            </Button>
-            <Button
-              sx={{ margin: '10px' }}
-              onClick={() => navHandler('/register')}
-              variant="contained"
-            >
-              Sign Up!
-            </Button>
+            <div className={styles.buttons}>
+              <Button
+                sx={{ margin: '10px' }}
+                onClick={() => navHandler('/login')}
+                variant="outlined"
+              >
+                Sign In!
+              </Button>
+              <Button
+                sx={{ margin: '10px' }}
+                onClick={() => navHandler('/register')}
+                variant="contained"
+              >
+                Sign Up!
+              </Button>
+            </div>
           </div>
         </Box>
       )}

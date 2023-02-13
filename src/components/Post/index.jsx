@@ -146,11 +146,15 @@ export const Post = React.memo(
                       onClick={showCommentsHandler}
                       aria-expanded={visible}
                     >
-                      <CommentIcon htmlColor={!visible ? '#000' : '#4361ee'} />
+                      <CommentIcon
+                        htmlColor={!visible ? '#000' : '#4361ee'}
+                        sx={visible && { opacity: 1 }}
+                      />
                       <Typography
                         sx={{
                           fontSize: '14px',
                           color: !visible ? '#000' : ' #4361ee',
+                          opacity: !visible ? '0.5' : '1',
                         }}
                       >
                         {commentsCount ? commentsCount : coms?.length}

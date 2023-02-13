@@ -15,10 +15,8 @@ export const TagPostsPage = () => {
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.auth.data);
   const { tags } = useSelector((state) => state.posts);
-  //   const { comments } = useSelector((state) => state.comments);
 
   const isTagsLoading = tags.status === 'loading';
-  //   const isCommentsLoading = comments.status === 'loading';
 
   useEffect(() => {
     const name = params.tag;
