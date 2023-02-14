@@ -27,8 +27,6 @@ import {
 import { CommentsBlock } from '../CommentsBlock';
 import { Comment } from '../AddComment';
 
-//isWorking?
-
 export const Post = React.memo(
   ({
     _id,
